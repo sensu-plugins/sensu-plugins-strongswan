@@ -5,4 +5,5 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## Unreleased][unreleased]
 
-
+### Changed
+- updated sensu-plugin gem to 1.2.0
