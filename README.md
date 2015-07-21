@@ -11,6 +11,9 @@
 
 ## Files
 
+  * bin/check-strongswan.rb
+  * bin/metrics-strongswan.rb
+
 ## Usage
 
 ## Installation
