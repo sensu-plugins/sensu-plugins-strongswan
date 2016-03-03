@@ -49,7 +49,9 @@ class StrongswanMetrics < Sensu::Plugin::Metric::CLI::Graphite
     ipsec_status.each_line do |line|
       if line =~ /Security Associations/
         connections = ipsec_status.match(/Security Associations \((\d+)/)[1].to_i
+        queue = ipsec_status.match(/Security Associations \(.*,\s*(\d+)/)[1].to_i
         output "#{config[:scheme]}.connections", connections
+        output "#{config[:scheme]}.queue", queue
       end
       ok
     end
