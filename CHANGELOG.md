@@ -7,10 +7,11 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - metric for a queued connections (at a state 'connecting') from @xdrus.
 
-## [0.1.0] - 2015-07-23
-
+## 0.1.0 - 2015-07-23
 ### Changed
 - updated sensu-plugin gem to 1.2.0
 
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
+
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/0.1.0...HEAD
