@@ -3,9 +3,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
-## [Unreleased] - 2016-03-03
+## [Unreleased]
+
+## [0.1.1] - 2016-03-17
 ### Added
 - metric for a queued connections (at a state 'connecting') from @xdrus.
+
+### Changed
+- Update to rubocop 0.37
 
 ## 0.1.0 - 2015-07-23
 ### Changed
@@ -14,4 +19,5 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/0.1.0...0.1.1
