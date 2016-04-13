@@ -24,7 +24,7 @@ deploy:
     secure: FnCIO976bbC349tK4Xv6Q99ENAKR6Ylp1KMPwrmBCUB3m8hB5XYwv/9YRwLNtq0H8bavZlqJBSewBQJmYMOWPKfZFFXzFj6ueh4uJfznMx3DCFO4dc85VoLg4iQR+cn42sjFGZJjHjiJEy/8i7oqGhQtiu4qV253TRDYukh4JjdZJxwXRjyH1H64mGxxzjm+cklgM0vi8bgT4xRHHaIHaaAGjnCjZi413BejZ6wuWrXoRYpbpVsP1JUsapZ+UBOb+ELPnP6PhXiKS5ISVofdXYgLyeW6Uah3qg+/MfvGn6H8g+xqH0zqswnaa8CPevlZ5SG0m+fMUJJf5ZqezLC3u+CwjlZOx2zOzordoiF139EMe8AOv0xnZiE+o7P0CAPfPFrqsu6AcUb6kmWwzQXrKTEdT99bantn+GNQbTKGspDeCLMiJkL1kGvayXwLcaKh7hRvYgaNymEUHSjgQoVWCPlgpR8wMekHJOojyn2/Y+Ynt9K12SGA/dfG32upOdv5H+cv93J7KLTbnQPvKeofd7cwPoRXmgo1ZMXE5EDzjz4YfphIpKwR/luS6gStkurzdfr1AclYoPZa0VHWLlTNwLGF1ww3TZL7pC3yIaEvFqzv+v2NKvKlZhNU5VFeTG3NYB460dQLInpnXSv02EFTC4xNDVZ9DeOV3YMs10WteJY=
   gem: sensu-plugins-strongswan
   on:
-    ags: true
+    tags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0
