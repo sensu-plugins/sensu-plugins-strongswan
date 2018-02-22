@@ -5,7 +5,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 ### Added
-- add check-strongswan-connection.rb plugin
+- check-strongswan-connection.rb: checks the health of a strongwan connection (@nishiki)
 
 ## [1.0.0] - 2017-07-09
 ### Added
