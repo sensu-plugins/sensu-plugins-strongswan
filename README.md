@@ -12,6 +12,7 @@
 
   * bin/check-strongswan.rb
   * bin/metrics-strongswan.rb
+  * bin/check-strongswan-connection.rb
 
 ## Usage
 
