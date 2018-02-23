@@ -1,11 +1,19 @@
-#Change Log
+# Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
+This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [1.1.0] - 2018-02-22
 ### Added
 - check-strongswan-connection.rb: checks the health of a strongwan connection (@nishiki)
+
+### Changed
+- update Changelog guidelines location (@majormoses)
+
+### Fixed
+- minor typos (@majormoses)
 
 ## [1.0.0] - 2017-07-09
 ### Added
@@ -28,6 +36,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/0.1.1...1.0.0
 [0.1.1]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/0.1.0...0.1.1
