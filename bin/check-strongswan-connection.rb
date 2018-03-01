@@ -27,6 +27,7 @@
 #
 
 require 'sensu-plugin/check/cli'
+require 'timeout'
 
 # check strongswan connection status
 class CheckStrongswanConnection < Sensu::Plugin::Check::CLI
@@ -37,7 +38,13 @@ class CheckStrongswanConnection < Sensu::Plugin::Check::CLI
          required: true
 
   def run
-    output = `ipsec statusall #{config[:connection]}`
+    pipe = IO.popen("ipsec statusall #{config[:connection]}")
+
+    Timeout.timeout(1) do
+      Process.wait(pipe.pid)
+    end
+
+    output = pipe.read
     if output.include?('INSTALLED, TUNNEL,')
       ok "the connection #{config[:connection]} is up"
     elsif !output.include?(config[:connection])
@@ -45,5 +52,8 @@ class CheckStrongswanConnection < Sensu::Plugin::Check::CLI
     else
       critical "the connection #{config[:connection]} is down"
     end
+  rescue
+    Process.kill(9, pipe.pid)
+    unknown 'unable to retrieve the connection status'
   end
 end
