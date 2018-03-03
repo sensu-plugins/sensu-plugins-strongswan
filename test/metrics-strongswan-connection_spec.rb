@@ -1,22 +1,21 @@
-
 require_relative './spec_helper.rb'
-require_relative '../bin/metrics-strongswan-listcounters.rb'
+require_relative '../bin/metrics-strongswan-connection'
 require_relative './fixtures.rb'
 
 require 'sensu-plugin/metric/cli'
 
 # rubocop:disable Style/ClassVars
 
-class StrongswanListcountersMetrics
+class MetricsStrongswanStrongswanConnection
   attr_reader :result
 
   at_exit do
     @@autorun = false
   end
 
-  def run_ipsec_listcounters
+  def run_ipsec_statusall
     @result = {}
-    ipsec_listcounters_response
+    ipsec_statusall_response
   end
 
   def output(*args)
@@ -34,17 +33,17 @@ end
 
 # rubocop:enable Style/ClassVars
 
-describe 'StrongswanListcountersMetrics' do
+describe 'MetricsStrongswanStrongswanConnection' do
   before do
-    @default_parameters = '--scheme=test'
-    @metrics = StrongswanListcountersMetrics.new @default_parameters.split(' ')
+    @default_parameters = '--scheme=test --connection=OVHEU-to-THRU'
+    @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
   end
 
   describe '#run' do
     it 'tests that a metrics are ok' do
       @metrics.run
-      expect(@metrics.result['test.ikeInitRekey']).equal? '1'
-      expect(@metrics.result['test.ikeOutInfoRsp']).equal? '21'
+      expect(@metrics.result['test.OVHEU-to-THRU.bytes_i']).equal? '1'
+      expect(@metrics.result['test.OVHEU-to-THRU.bytes_o']).equal? '1986502'
     end
   end
 end
