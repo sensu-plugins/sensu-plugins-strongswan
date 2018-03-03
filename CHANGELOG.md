@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+### Added
+- Added new metrics-strongswan-listcounters.rb plugin for getting IKE counters (@yuri-zubov)
+
+### Breaking Changes
+Dropping ruby `< 2.1` support (@yuri-zubov)
 
 ## [1.1.0] - 2018-02-22
 ### Added
