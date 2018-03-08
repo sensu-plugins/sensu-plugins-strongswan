@@ -4,11 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
-### Added
-- Added new metrics-strongswan-connection.rb plugin for getting connection metrics (@yuri-zubov)
 
+## [2.0.0] - 2018-03-07
 ### Breaking Changes
 - Dropping ruby `< 2.3` support (@yuri-zubov)
+
+### Added
+- Added new metrics-strongswan-connection.rb plugin for getting connection metrics (@yuri-zubov)
 
 ## [1.2.0] - 2018-03-04
 ### Added
@@ -48,7 +50,8 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/0.1.1...1.0.0
