@@ -33,3 +33,6 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/FlipFlop:
+  Enabled: false

@@ -43,8 +43,8 @@ describe 'StrongswanListcountersMetrics' do
   describe '#run' do
     it 'tests that a metrics are ok' do
       @metrics.run
-      expect(@metrics.result['test.ikeInitRekey']).equal? '1'
-      expect(@metrics.result['test.ikeOutInfoRsp']).equal? '21'
+      expect(@metrics.result['test.ikeInitRekey']).to eq '1'
+      expect(@metrics.result['test.ikeOutInfoRsp']).to eq '21'
     end
   end
 end
