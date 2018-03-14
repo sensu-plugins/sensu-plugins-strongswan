@@ -41,8 +41,7 @@ class MetricsStrongswanStrongswanConnection < Sensu::Plugin::Metric::CLI::Graphi
   option :connection,
          description: 'Connection name to check',
          short: '-c NAME',
-         long: '--connection NAME',
-         required: true
+         long: '--connection NAME'
 
   def run_ipsec_statusall
     stdout, result = Open3.capture2("ipsec statusall #{config[:connection]}")
@@ -55,7 +54,7 @@ class MetricsStrongswanStrongswanConnection < Sensu::Plugin::Metric::CLI::Graphi
 
     found = false
     ipsec_status.each_line do |line|
-      result = line.match(/(?<name>.*)\{.*(?<bytes_i>\d+)\ bytes_i.*\ (?<bytes_o>\d+)\ bytes_o/)
+      result = line.match(/(?<name>.*)\{.* (?<bytes_i>\d+)\ bytes_i.*\ (?<bytes_o>\d+)\ bytes_o/)
       next unless result
 
       found = true

@@ -15,7 +15,11 @@ class MetricsStrongswanStrongswanConnection
 
   def run_ipsec_statusall
     @result = {}
-    ipsec_statusall_response
+    if config[:connection]
+      ipsec_statusall_response
+    else
+      ipsec_statusall_for_all_connection
+    end
   end
 
   def output(*args)
@@ -34,16 +38,44 @@ end
 # rubocop:enable Style/ClassVars
 
 describe 'MetricsStrongswanStrongswanConnection' do
-  before do
-    @default_parameters = '--scheme=test --connection=OVHEU-to-THRU'
-    @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
-  end
+  describe 'with connection name' do
+    before do
+      @default_parameters = '--scheme=test --connection=OVHEU-to-THRU'
+      @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
+    end
 
-  describe '#run' do
-    it 'tests that a metrics are ok' do
-      @metrics.run
-      expect(@metrics.result['test.OVHEU-to-THRU.bytes_i']).equal? '1'
-      expect(@metrics.result['test.OVHEU-to-THRU.bytes_o']).equal? '1986502'
+    describe '#run' do
+      it 'tests that a metrics are ok' do
+        @metrics.run
+        expect(@metrics.result['test.OVHEU-to-THRU.bytes_i']).to eq '28511501'
+        expect(@metrics.result['test.OVHEU-to-THRU.bytes_o']).to eq '1986502'
+      end
+    end
+  end
+end
+
+describe 'MetricsStrongswanStrongswanConnection' do
+  describe 'for all connections' do
+    before do
+      @default_parameters = '--scheme=test'
+      @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
+    end
+
+    describe '#run' do
+      it 'tests that a metrics are ok' do
+        @metrics.run
+        expect(@metrics.result['test.OVHEU-to-THRU.bytes_i']).to eq '8046042'
+        expect(@metrics.result['test.OVHEU-to-THRU.bytes_o']).to eq '546577'
+
+        expect(@metrics.result['test.OVHEU-to-PAR.bytes_i']).to eq '0'
+        expect(@metrics.result['test.OVHEU-to-PAR.bytes_o']).to eq '0'
+
+        expect(@metrics.result['test.OVHEU-to-EQXPA4.bytes_i']).to eq '9786795'
+        expect(@metrics.result['test.OVHEU-to-EQXPA4.bytes_o']).to eq '661585'
+
+        expect(@metrics.result['test.OVHEU-to-EQXPA3.bytes_i']).to eq '9452826'
+        expect(@metrics.result['test.OVHEU-to-EQXPA3.bytes_o']).to eq '625165'
+      end
     end
   end
 end
