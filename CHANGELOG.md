@@ -4,8 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
-+### Added
-+- Added ability to check all existing connection and get metrics from all connections (@yuri-zubov)
+
+## [2.1.0] - 2018-03-17
+### Added
+- Added ability to check all existing connection and get metrics from all connections (@yuri-zubov)
 
 ## [2.0.0] - 2018-03-07
 ### Breaking Changes
@@ -52,7 +54,8 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.0.0...1.1.0
