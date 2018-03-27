@@ -15,11 +15,7 @@ class MetricsStrongswanStrongswanConnection
 
   def run_ipsec_statusall
     @result = {}
-    if config[:connection]
-      ipsec_statusall_response
-    else
-      ipsec_statusall_for_all_connection
-    end
+    @fixture.call
   end
 
   def output(*args)
@@ -42,6 +38,7 @@ describe 'MetricsStrongswanStrongswanConnection' do
     before do
       @default_parameters = '--scheme=test --connection=OVHEU-to-THRU'
       @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_response })
     end
 
     describe '#run' do
@@ -52,13 +49,12 @@ describe 'MetricsStrongswanStrongswanConnection' do
       end
     end
   end
-end
 
-describe 'MetricsStrongswanStrongswanConnection' do
   describe 'for all connections' do
     before do
       @default_parameters = '--scheme=test'
       @metrics = MetricsStrongswanStrongswanConnection.new @default_parameters.split(' ')
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_for_all_connection })
     end
 
     describe '#run' do
@@ -75,6 +71,21 @@ describe 'MetricsStrongswanStrongswanConnection' do
 
         expect(@metrics.result['test.OVHEU-to-EQXPA3.bytes_i']).to eq '9452826'
         expect(@metrics.result['test.OVHEU-to-EQXPA3.bytes_o']).to eq '625165'
+      end
+    end
+  end
+
+  describe 'for all connections with out problems' do
+    before do
+      @default_parameters = '--scheme=test'
+      @metrics = MetricsStrongswanStrongswanConnection.new(@default_parameters.split(' '))
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_for_all_connection2 })
+    end
+
+    describe '#run' do
+      it 'tests that a metrics are ok' do
+        @metrics.run
+        expect(@metrics.result['test.LEVIKOM:.bytes_i']).to eq '135'
       end
     end
   end
