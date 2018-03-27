@@ -15,11 +15,7 @@ class CheckStrongswanConnection
 
   def run_ipsec_statusall
     @result = {}
-    if config[:connection]
-      ipsec_statusall_response
-    else
-      ipsec_statusall_for_all_connection_with_down_connection
-    end
+    @fixture.call
   end
 
   def critical(*args)
@@ -44,6 +40,7 @@ describe 'MetricsStrongswanStrongswanConnection' do
     before do
       @default_parameters = '--connection=OVHEU-to-THRU'
       @metrics = CheckStrongswanConnection.new(@default_parameters.split(' '))
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_response })
     end
 
     describe '#run' do
@@ -54,16 +51,33 @@ describe 'MetricsStrongswanStrongswanConnection' do
     end
   end
 
-  describe 'for all connections' do
+  describe 'for all connections some connections have problems' do
     before do
       @default_parameters = ''
       @metrics = CheckStrongswanConnection.new(@default_parameters.split(' '))
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_for_all_connection_with_down_connection })
     end
 
     describe '#run' do
       it 'tests that a metrics are ok' do
         @metrics.run
         expect(@metrics.result[:critical]).to eq 'the connection OVHEU-to-EQXPA3, OVHEU-to-THRU is down'
+      end
+    end
+  end
+
+  describe 'for all connections with out problems' do
+    before do
+      @default_parameters = ''
+      @metrics = CheckStrongswanConnection.new(@default_parameters.split(' '))
+      @metrics.instance_variable_set(:@fixture, -> { ipsec_statusall_for_all_connection2 })
+    end
+
+    describe '#run' do
+      it 'tests that a metrics are ok' do
+        @metrics.run
+        expect(@metrics.result[:ok]).to eq 'the connection(s) PROXIMUS-SITE2, SWISSCOM-A, SWISSCOM-B, DIGITA-1, ' \
+'DIGITA-2, COMSOL-A, COMSOL-B, LEVIKOM:, COMCAST, MT-A, MT-B, INMARSAT, BLINK is up'
       end
     end
   end

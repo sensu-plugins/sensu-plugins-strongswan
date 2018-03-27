@@ -48,13 +48,13 @@ class CheckStrongswanConnection < Sensu::Plugin::Check::CLI
     connection_names = Set.new
     established_connection_name = Set.new
     ipsec_status.each_line do |line|
-      if line.match(/^Connections:/) .. line.match(/^Security Associations/)
-        result = line.match(/^(?<name>(.*)):.*local/)
+      if line.match(/^Connections:/) .. line.match(/^Security Associations|Routed Connections/)
+        result = line.match(/^[[:space:]]*(?<name>(.*?)): .*TUNNEL/)
         connection_names << result[:name] if result
       end
 
       if line.match(/^Security Associations/) .. false
-        result = line.match(/^(?<name>(.*))\{.*INSTALLED, TUNNEL,/)
+        result = line.match(/^[[:space:]]*(?<name>(.*?))\{.*INSTALLED, TUNNEL,/)
         established_connection_name << result[:name] if result
       end
     end

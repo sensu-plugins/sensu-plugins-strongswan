@@ -54,7 +54,7 @@ class MetricsStrongswanStrongswanConnection < Sensu::Plugin::Metric::CLI::Graphi
 
     found = false
     ipsec_status.each_line do |line|
-      result = line.match(/(?<name>.*)\{.* (?<bytes_i>\d+)\ bytes_i.*\ (?<bytes_o>\d+)\ bytes_o/)
+      result = line.match(/[[:space:]]*(?<name>.*?)\{.* (?<bytes_i>\d+)\ bytes_i.*\ (?<bytes_o>\d+)\ bytes_o/)
       next unless result
 
       found = true

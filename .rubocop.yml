@@ -36,3 +36,7 @@ Style/FrozenStringLiteralComment:
 
 Style/FlipFlop:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*.rb'
