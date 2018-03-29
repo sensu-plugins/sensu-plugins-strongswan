@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
-### Added
+
+## [2.1.1] - 2018-03-28
+### Fixed
 - (metrics-strongswan.rb, metrics-strongswan-connection.rb) Fixed bug with regexp (@yuri-zubov)
 
 
@@ -57,7 +59,8 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 ### Added
 - add check-strongswan.rb and metrics-strongswan.rb plugins
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.1.1...HEAD
+[2.1.1]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-strongswan/compare/1.1.0...1.2.0
